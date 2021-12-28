@@ -1,6 +1,8 @@
-int	ft_strupcase(int c)
+#include "libft.h"
+
+int	ft_tolower(int c)
 {
-	if (c >= 'a' && c <= 'z')
+	if (c >= 'A' && c <= 'Z')
 	{
 		c = c + 32;
 	}

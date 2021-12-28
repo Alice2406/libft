@@ -1,18 +1,6 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: aniezgod <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/22 12:52:16 by aniezgod          #+#    #+#             */
-/*   Updated: 2021/07/22 12:52:18 by aniezgod         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include "libft.h"
 
-#include <stdlib.h>
-
-int	ft_strlen(char **str, char *sep, int size)
+static int	ft_strlen2(char **str, char *sep, int size)
 {
 	int	i;
 	int	j;
@@ -69,7 +57,7 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 		chaine = malloc(0);
 		return (chaine);
 	}
-	chaine = malloc(sizeof(char) * (ft_strlen(strs, sep, size) + 1));
+	chaine = malloc(sizeof(char) * (ft_strlen2(strs, sep, size) + 1));
 	if (!chaine)
 		return (NULL);
 	i = 0;

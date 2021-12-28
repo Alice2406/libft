@@ -1,17 +1,21 @@
-void *memchr(const void *s, int c, size_t n)
+#include "libft.h"
+
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	unsigned long int i;
-	char *d;
-	d = (char *) s;
-	while (i > n)
+	size_t			i;
+	unsigned char	*d;
+
+	d = (unsigned char *) s;
+	i = 0;
+	if (!s)
+		return (NULL);
+	while (i < n)
 	{
-		if (d[i] == c)
+		if (d[i] == (unsigned char)c)
 		{
-			s = (void *) d;
 			return ((void *)d + i);
 		}
 		i++;
 	}
 	return (NULL);
-}
-		
+}	
