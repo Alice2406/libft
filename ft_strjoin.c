@@ -1,73 +1,29 @@
 #include "libft.h"
 
-static int	ft_strlen2(char **str, char *sep, int size)
+char *ft_strjoin(char const *s1, char const *s2)
 {
-	int	i;
-	int	j;
-	int	size_strs;
-	int	size_sep;
+		size_t size;
+		char *chaine;
+		size_t i;
+		size_t j;
 
-	i = 0;
-	size_strs = 0;
-	size_sep = 0;
-	while (str[i])
-	{
+		size = ft_strlen(s1) + ft_strlen(s2);
+		chaine = (char *)malloc(sizeof(*s1) * (size + 1));
+		i = 0;
 		j = 0;
-		while (str[i][j])
+		while (s1[i])
 		{
-			size_strs++;
+			chaine[j] = s1[i];
+			i++;
 			j++;
 		}
-		i++;
-	}
-	i = 0;
-	while (sep[i])
-	{
-		size_sep++;
-		i++;
-	}
-	return (size_sep * (size - 1) + size_strs);
-}
-
-char	*ft_strcat(char *dest, char *src, int i)
-{
-	int	l;
-	int	j;
-
-	l = 0;
-	j = 0;
-	while (dest[l] && i != 0)
-		l++;
-	while (src[j])
-	{
-		dest[l + j] = src[j];
-		j++;
-	}
-	dest[l + j] = '\0';
-	return (dest);
-}
-
-char	*ft_strjoin(int size, char **strs, char *sep)
-{
-	int		i;
-	char	*chaine;
-
-	if (size <= 0)
-	{
-		chaine = malloc(0);
+		i = 0;
+		while (s2[i])
+		{
+			chaine[j] = s2[i];
+			j++;
+			i++;
+		}
+		chaine[j] = '\0';
 		return (chaine);
-	}
-	chaine = malloc(sizeof(char) * (ft_strlen2(strs, sep, size) + 1));
-	if (!chaine)
-		return (NULL);
-	i = 0;
-	chaine[0] = '\0';
-	while (i < size)
-	{
-		chaine = ft_strcat(chaine, strs[i], i);
-		i++;
-		if (i < size)
-			chaine = ft_strcat(chaine, sep, i);
-	}
-	return (chaine);
 }

@@ -1,5 +1,4 @@
 #include "libft.h"
-#include <stdlib.h>
 
 char	*ft_strcpy(char *dest, char *src)
 {
