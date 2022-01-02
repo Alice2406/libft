@@ -1,38 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/02 18:08:46 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/01/02 18:09:50 by aniezgod         ###   ########.fr       */
+/*   Created: 2022/01/02 17:38:00 by aniezgod          #+#    #+#             */
+/*   Updated: 2022/01/02 23:20:37 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	*ft_memcpy(void *dest, const void *src, size_t size)
 {
-	char	*chaine;
-	size_t	i;
-	size_t	j;
+	char	*destcpy;
+	char	*srccpy;
 
-	i = 0;
-	j = 0;
-	if (len < (size_t)ft_strlen(s))
-		chaine = (char *)malloc(sizeof(*s) * (len + 1));
-	else
-		chaine = (char *)malloc(sizeof(*s) * (ft_strlen(s) + 1));
-	if (!chaine)
+	if (!dest && !src)
 		return (0);
-	while (i != start && s[i])
-		i++;
-	while (s[i] && j < len)
+	destcpy = (char *) dest;
+	srccpy = (char *) src;
+	while (size > 0)
 	{
-		chaine[j] = s[i];
-		j++;
-		i++;
+		size--;
+		destcpy[size] = srccpy[size];
 	}
-	chaine[j] = '\0';
-	return (chaine);
+	destcpy = (void *)dest;
+	return (dest);
 }

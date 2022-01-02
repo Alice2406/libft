@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 17:34:04 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/01/02 17:34:26 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/01/02 23:57:08 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -42,6 +42,8 @@ char	*ft_itoa(int n)
 	nbr = n;
 	i = 0;
 	str = (char *)malloc (sizeof(*str) * (count + 2));
+	if (!str)
+		return (NULL);
 	if (n < 0)
 	{
 		i = 1;

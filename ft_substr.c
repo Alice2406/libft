@@ -1,28 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/02 17:59:29 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/01/02 17:59:45 by aniezgod         ###   ########.fr       */
+/*   Created: 2022/01/02 18:08:46 by aniezgod          #+#    #+#             */
+/*   Updated: 2022/01/02 23:45:00 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int		i;
-	char	*str;
+	char	*chaine;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
-	str = (char *)malloc(sizeof(*s) * (ft_strlen(s) + 1));
-	while (s[i])
+	j = 0;
+	if (!s)
+		return (NULL);
+	if (len < (size_t)ft_strlen(s))
+		chaine = (char *)malloc(sizeof(*s) * (len + 1));
+	else
+		chaine = (char *)malloc(sizeof(*s) * (ft_strlen(s) + 1));
+	if (!chaine)
+		return (0);
+	while (i != start && s[i])
+		i++;
+	while (s[i] && j < len)
 	{
-		str[i] = f(i, s[i]);
+		chaine[j] = s[i];
+		j++;
 		i++;
 	}
-	str[i] = '\0';
-	return (str);
+	chaine[j] = '\0';
+	return (chaine);
 }

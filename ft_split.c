@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 17:43:48 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/01/02 17:51:13 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/01/02 23:56:04 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -87,16 +87,22 @@ char	**ft_split(char const *s, char c)
 	char	**chaine;
 	int		j;
 
+	if (!s)
+		return (0);
 	j = 0;
 	if (count_words(s, c) != 0 || *s)
 	{
 		chaine = malloc(sizeof(char *) * (count_words(s, c) + 1));
+		if (!chaine)
+			return (NULL);
 		chaine = ft_split2(chaine, j, s, c);
 		return (chaine);
 	}
 	else
 	{
 		chaine = malloc(sizeof(char *) * 1);
+		if (!chaine)
+			return (NULL);
 		chaine[0] = 0;
 		return (chaine);
 	}

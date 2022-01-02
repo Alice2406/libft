@@ -1,17 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/02 17:42:42 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/01/02 17:42:47 by aniezgod         ###   ########.fr       */
+/*   Created: 2022/01/02 18:00:45 by aniezgod          #+#    #+#             */
+/*   Updated: 2022/01/03 00:06:32 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 {
-	write(fd, s, ft_strlen(s));
+	int	i;
+
+	if (!*to_find)
+		return ((char *)str);
+	while (*str && len > 0)
+	{
+		if (*str == *to_find)
+		{
+			i = 1;
+			while (str[i] == to_find[i] && to_find[i]
+				&& (long long)len - i >= 0)
+				i++;
+			if (!to_find[i])
+				return ((char *)str);
+		}
+		str++;
+		len--;
+	}
+	return (0);
 }

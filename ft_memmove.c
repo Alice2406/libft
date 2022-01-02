@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/02 17:51:34 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/01/02 17:51:41 by aniezgod         ###   ########.fr       */
+/*   Created: 2022/01/02 17:39:27 by aniezgod          #+#    #+#             */
+/*   Updated: 2022/01/03 00:07:01 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	*ft_memmove(void *dest, const void *src, size_t size)
 {
-	size_t	i;
+	unsigned char	*destcpy;
+	unsigned char	*srccpy;
+	size_t			index;
 
-	i = 0;
-	if (!s)
-		return (NULL);
-	while (s[i])
+	if (!dest && !src)
+		return (0);
+	index = 0;
+	destcpy = (unsigned char *) dest;
+	srccpy = (unsigned char *) src;
+	if (destcpy < srccpy)
 	{
-		if (s[i] == (char)c)
-			return ((char *)s + i);
-		i++;
+		while (index < size)
+		{
+			destcpy[index] = srccpy[index];
+			index++;
+		}
 	}
-	if (s[i] == (char)c)
-		return ((char *)s + i);
-	return (NULL);
+	else
+	{
+		while (size--)
+			destcpy[size] = srccpy[size];
+	}
+	return (dest);
 }

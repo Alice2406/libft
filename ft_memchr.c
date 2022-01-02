@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 17:35:36 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/01/02 17:35:44 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/01/02 23:32:30 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -18,8 +18,6 @@ void	*ft_memchr(const void *s, int c, size_t n)
 
 	d = (unsigned char *) s;
 	i = 0;
-	if (!s)
-		return (NULL);
 	while (i < n)
 	{
 		if (d[i] == (unsigned char)c)

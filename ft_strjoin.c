@@ -1,21 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/02 17:41:25 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/01/02 17:41:33 by aniezgod         ###   ########.fr       */
+/*   Created: 2022/01/02 17:53:36 by aniezgod          #+#    #+#             */
+/*   Updated: 2022/01/02 23:50:25 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void	ft_putendl_fd(char const *s, int fd)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	n;
+	char	*chaine;
+	size_t	i;
+	size_t	j;
 
-	n = '\n';
-	write(fd, s, ft_strlen(s));
-	write(fd, &n, 1);
+	if (!s1 || !s2)
+		return (NULL);
+	i = ft_strlen(s1);
+	j = ft_strlen(s2);
+	chaine = (char *)malloc(sizeof(*s1) * (i + j + 1));
+	if (!chaine)
+		return (NULL);
+	i = 0;
+	j = 0;
+	while (s1[i])
+	{
+		chaine[i] = s1[i];
+		i++;
+	}
+	while (s2[j])
+	{
+		chaine[j + i] = s2[j];
+		j++;
+	}
+	chaine[j + i] = '\0';
+	return (chaine);
 }
