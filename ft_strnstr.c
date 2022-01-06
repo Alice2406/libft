@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 18:00:45 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/01/03 00:06:32 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/01/03 16:33:51 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -23,7 +23,7 @@ char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 		{
 			i = 1;
 			while (str[i] == to_find[i] && to_find[i]
-				&& (long long)len - i >= 0)
+				&& len - i > 0)
 				i++;
 			if (!to_find[i])
 				return ((char *)str);
