@@ -6,7 +6,7 @@
 #    By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/02 19:11:10 by aniezgod          #+#    #+#              #
-#    Updated: 2022/01/02 19:21:45 by aniezgod         ###   ########.fr        #
+#    Updated: 2022/02/20 00:15:44 by aniezgod         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,17 @@ SRCS =	./ft_isalpha.c \
 
 OBJS = ${SRCS:.c=.o}
 
+BONUS			=	./ft_lstadd_front.c \
+					./ft_lstlast.c \
+					./ft_lstnew.c \
+					./ft_lstsize.c \
+					./ft_lstadd_back.c \
+					./ft_lstdelone.c \
+					./ft_lstclear.c \
+					./ft_lstiter.c \
+					
+BONUS_OBJS		= $(BONUS:.c=.o)
+
 NAME = libft.a
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
@@ -70,5 +81,8 @@ fclean: clean
 			${RM} ${NAME}
 
 re: fclean all
+
+bonus:			$(OBJS) $(BONUS_OBJS)
+				ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
 
 .PHONY:		all clean fclean re
