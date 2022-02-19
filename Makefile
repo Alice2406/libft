@@ -6,7 +6,7 @@
 #    By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/02 19:11:10 by aniezgod          #+#    #+#              #
-#    Updated: 2022/02/20 00:15:44 by aniezgod         ###   ########.fr        #
+#    Updated: 2022/02/20 00:38:47 by aniezgod         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -85,4 +85,4 @@ re: fclean all
 bonus:			$(OBJS) $(BONUS_OBJS)
 				ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
 
-.PHONY:		all clean fclean re
+.PHONY:		all clean fclean re bonus
