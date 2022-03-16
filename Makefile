@@ -6,7 +6,7 @@
 #    By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/02 19:11:10 by aniezgod          #+#    #+#              #
-#    Updated: 2022/02/20 00:38:47 by aniezgod         ###   ########.fr        #
+#    Updated: 2022/03/16 17:56:07 by aniezgod         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,6 +55,7 @@ BONUS			=	./ft_lstadd_front.c \
 					./ft_lstdelone.c \
 					./ft_lstclear.c \
 					./ft_lstiter.c \
+					./ft_lstmap.c \
 					
 BONUS_OBJS		= $(BONUS:.c=.o)
 
@@ -75,7 +76,7 @@ $(NAME): $(OBJS)
 			ar -rcs $(NAME) $(OBJS)
 
 clean:
-			${RM} ${OBJS} ${OBJSBONUS}
+			${RM} ${OBJS} ${BONUS_OBJS}
 
 fclean: clean
 			${RM} ${NAME}
